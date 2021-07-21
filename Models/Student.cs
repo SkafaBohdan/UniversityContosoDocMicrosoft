@@ -7,28 +7,12 @@ using System.Threading.Tasks;
 
 namespace UniversityContosoDocMicrosoft.Models
 {
-    public class Student
+    public class Student : Person
     {
-        public int ID { get; set; }
-        [Display(Name = "Last Name")]
-        [Required]
-        [StringLength(50, MinimumLength = 2)]
-        public string LastName { get; set; }
-        [Required]
-        [StringLength(50)]
-        [Column("FirstName")]
-        public string FirstMidName { get; set; }
-        [DataType(DataType.Date)]
+            [DataType(DataType.Date)]
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
-        public string FullName
-        {
-            get
-            {
-                return LastName + ", " + FirstMidName;
-            }
-        }
-
+      
         public ICollection<Enrollment> Enrollments { get; set; }
     }
 }
